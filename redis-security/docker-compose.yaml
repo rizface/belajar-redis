@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  redis-server:
+    container_name: redis-server
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+  redis-client:
+    container_name: redis-client
+    image: redis
